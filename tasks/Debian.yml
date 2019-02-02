@@ -1,22 +1,13 @@
 ---
 
-- name: Create temporary download directory
-  tempfile:
-    state: directory
-    suffix: hyper
-  register: hyper_tmp
+- name: Get installed Hyper version
+  shell: "dpkg -l hyper | grep hyper | awk 'NR==1{print $3}' | cut -d- -f1"
+  register: hyper_dpkg_version
+  changed_when: False
 
-- name: Download Hyper .deb package
-  get_url:
-    url: "{{ hyper_deb_url }}"
-    dest: "{{ hyper_tmp.path }}/{{ hyper_deb_file }}"
-    checksum: "{{ hyper_deb_checksum }}"
+- name: Set installed Hyper version
+  set_fact:
+    hyper_installed_version: "{{ hyper_dpkg_version.stdout }}"
 
-- name: Install Hyper .deb package
-  apt:
-    deb: "{{ hyper_tmp.path }}/{{ hyper_deb_file }}"
-
-- name: Cleanup temp directory
-  file:
-    path: "{{ hyper_tmp.path }}"
-    state: absent
+- include: Debian_install.yml
+  when: hyper_installed_version != hyper_version
