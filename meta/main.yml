@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Marko Samuli Kirves
+  description: Hyper terminal installer
+  license: MIT
+  min_ansible_version: 2.4
+  github_branch: master
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+  galaxy_tags:
+    - terminal
+    - hyper
+dependencies: []

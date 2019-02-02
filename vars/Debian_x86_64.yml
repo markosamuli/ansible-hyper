@@ -1,0 +1,5 @@
+hyper_arch: "amd64"
+hyper_version: "2.1.1"
+hyper_deb_file: "hyper_{{ hyper_version }}_{{ hyper_arch }}.deb"
+hyper_deb_url: "https://github.com/zeit/hyper/releases/download/{{ hyper_version }}/{{ hyper_deb_file }}"
+hyper_deb_checksum: "sha256:1d9c8bc7df82ea4fbae79e43c6e5005689c9dc44140cfc3e46f672b1b69024ef"
