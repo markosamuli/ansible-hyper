@@ -5,7 +5,7 @@
   include_vars: "{{ item }}"
   with_first_found:
     - files:
-      - "{{ ansible_os_family }}_{{ ansible_architecture }}.yml"
+        - "{{ ansible_os_family }}_{{ ansible_architecture }}.yml"
       paths: vars
 
 - name: Debian-based system

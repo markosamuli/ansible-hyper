@@ -1,3 +1,4 @@
+---
 galaxy_info:
   role_name: hyper
   author: Marko Samuli Kirves
@@ -6,10 +7,10 @@ galaxy_info:
   min_ansible_version: 2.4
   github_branch: master
   platforms:
-  - name: Ubuntu
-    versions:
-    - trusty
-    - xenial
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
   galaxy_tags:
     - terminal
     - hyper
