@@ -9,5 +9,6 @@
       - "default.yml"
       paths: vars
 
-- include: Debian.yml
+- name: Debian-based system
+  include_tasks: Debian.yml
   when: ansible_os_family == 'Debian'
