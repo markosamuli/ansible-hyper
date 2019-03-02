@@ -5,20 +5,40 @@ python: "2.7"
 
 matrix:
   include:
-    - os: linux
+    - name: "Ubuntu 14.04 LTS with Ansible 2.4"
+      os: linux
+      dist: trusty
+      sudo: required
+      env: ANSIBLE_VERSION='<2.5.0' PYTHON_VERSION=2.7.15
+    - name: "Ubuntu 16.04 LTS with Ansible 2.5"
+      os: linux
       dist: xenial
       sudo: required
-      env: ANSIBLE_VERSION=2.7.4.0
+      env: ANSIBLE_VERSION='<2.6.0' PYTHON_VERSION=3.7.2
+    - name: "Ubuntu 16.04 LTS with Ansible 2.6"
+      os: linux
+      dist: xenial
+      sudo: required
+      env: ANSIBLE_VERSION='<2.7.0' PYTHON_VERSION=3.7.2
+    - name: "Ubuntu 16.04 LTS with Ansible 2.7"
+      os: linux
+      dist: xenial
+      sudo: required
+      env: ANSIBLE_VERSION='<2.8.0' PYTHON_VERSION=3.7.2
 
 # Install Ansible
 addons:
   apt:
     packages:
     - python-pip
+    - python-dev
 
 install:
-  # Install Ansible with pip
+  # Install Ansible with pip on Ubuntu
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo pip install ansible==${ANSIBLE_VERSION}; fi
+
+  # Install pre-commit with pip on Ubuntu
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo pip install pre-commit; fi
 
   # Check Ansible version
   - ansible --version
@@ -33,6 +53,8 @@ install:
     fi
 
 script:
+  # Run pre-commit hooks
+  - pre-commit run -a
 
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
