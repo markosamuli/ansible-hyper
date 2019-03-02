@@ -6,7 +6,6 @@
   with_first_found:
     - files:
       - "{{ ansible_os_family }}_{{ ansible_architecture }}.yml"
-      - "default.yml"
       paths: vars
 
 - name: Debian-based system
