@@ -30,18 +30,21 @@ matrix:
 addons:
   apt:
     packages:
-    - python-pip
+      - python-pip
 
 branches:
   only:
-  - master
-  - /^feature\/.*$/
-  - /^bugfix\/.*$/
-  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+    - master
+    - /^feature\/.*$/
+    - /^bugfix\/.*$/
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 
 install:
   # Install Ansible with pip on Ubuntu
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo pip install ansible==${ANSIBLE_VERSION}; fi
+  - >
+    if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
+      sudo pip install ansible${ANSIBLE_VERSION}
+    fi
 
   # Install pre-commit with pip on Ubuntu
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo pip install pre-commit; fi
