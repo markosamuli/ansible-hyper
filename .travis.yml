@@ -9,22 +9,22 @@ matrix:
       os: linux
       dist: trusty
       sudo: required
-      env: ANSIBLE_VERSION='<2.5.0' PYTHON_VERSION=2.7.15
+      env: ANSIBLE_VERSION='<2.5.0'
     - name: "Ubuntu 16.04 LTS with Ansible 2.5"
       os: linux
       dist: xenial
       sudo: required
-      env: ANSIBLE_VERSION='<2.6.0' PYTHON_VERSION=3.7.2
+      env: ANSIBLE_VERSION='<2.6.0'
     - name: "Ubuntu 16.04 LTS with Ansible 2.6"
       os: linux
       dist: xenial
       sudo: required
-      env: ANSIBLE_VERSION='<2.7.0' PYTHON_VERSION=3.7.2
+      env: ANSIBLE_VERSION='<2.7.0'
     - name: "Ubuntu 16.04 LTS with Ansible 2.7"
       os: linux
       dist: xenial
       sudo: required
-      env: ANSIBLE_VERSION='<2.8.0' PYTHON_VERSION=3.7.2
+      env: ANSIBLE_VERSION='<2.8.0'
 
 # Install Ansible
 addons:
