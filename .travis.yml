@@ -31,7 +31,13 @@ addons:
   apt:
     packages:
     - python-pip
-    - python-dev
+
+branches:
+  only:
+  - master
+  - /^feature\/.*$/
+  - /^bugfix\/.*$/
+  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 
 install:
   # Install Ansible with pip on Ubuntu
@@ -71,3 +77,6 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   - command -v hyper
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
