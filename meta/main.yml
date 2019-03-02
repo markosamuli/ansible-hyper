@@ -1,6 +1,7 @@
 galaxy_info:
+  role_name: hyper
   author: Marko Samuli Kirves
-  description: Hyper terminal installer
+  description: Hyper terminal installer for Linux
   license: MIT
   min_ansible_version: 2.4
   github_branch: master
