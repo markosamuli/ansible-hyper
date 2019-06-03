@@ -1,6 +1,6 @@
 ---
 hyper_arch: "amd64"
-hyper_version: "2.1.2"
+hyper_version: "3.0.2"
 hyper_deb_file: "hyper_{{ hyper_version }}_{{ hyper_arch }}.deb"
 hyper_deb_url: "https://github.com/zeit/hyper/releases/download/{{ hyper_version }}/{{ hyper_deb_file }}"
-hyper_deb_checksum: "sha256:95defe49830fe70d9f40c8f56858f6af97f04ad2b355711e84f3277ce6a298d8"
+hyper_deb_checksum: "sha256:d78cf1f3f3928be00426e6409638c17eed9d5fed782065571a8759e4cae6643b"
